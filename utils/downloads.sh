@@ -67,8 +67,8 @@ download_plugins_file(){
         # Download v2ray-plugin
         v2ray_plugin_ver=$(wget --no-check-certificate -qO- https://api.github.com/repos/teddysun/v2ray-plugin/releases | grep -o '"tag_name": ".*"' |head -n 1| sed 's/"//g;s/v//g' | sed 's/tag_name: //g')
         [ -z ${v2ray_plugin_ver} ] && echo -e "${Error} 获取 v2ray-plugin 最新版本失败." && exit 1
-        v2ray_plugin_file="v2ray-plugin-linux-amd64-v${v2ray_plugin_ver}"
-        v2ray_plugin_url="https://github.com/teddysun/v2ray-plugin/releases/download/v${v2ray_plugin_ver}/v2ray-plugin-linux-amd64-v${v2ray_plugin_ver}.tar.gz"
+        v2ray_plugin_file="v2ray-plugin-linux-arm64-v${v2ray_plugin_ver}"
+        v2ray_plugin_url="https://github.com/teddysun/v2ray-plugin/releases/download/v${v2ray_plugin_ver}/v2ray-plugin-linux-arm64-v${v2ray_plugin_ver}.tar.gz"
         download "${v2ray_plugin_file}.tar.gz" "${v2ray_plugin_url}"
         
     elif [[ "${plugin_num}" == "2" ]]; then        
